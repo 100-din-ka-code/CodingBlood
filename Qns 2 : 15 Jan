@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> final;
+        for(int i=0;i<nums.size();i++){
+            vector<int>::iterator it=find(nums.begin()+i+1,nums.end(),target-nums[i]);
+            cout<<"====>"<<target-nums[i];
+            if(it!=nums.end()){
+                cout<<"ent";
+                final.push_back(i);
+                final.push_back(it-nums.begin());
+                return final;
+            }
+        }
+        return final;
+    }
+};
+
+
+
+
+// https://leetcode.com/problems/two-sum/submissions/
+// Two Sum Week 1 (Array)
