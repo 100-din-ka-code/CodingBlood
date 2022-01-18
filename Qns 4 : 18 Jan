@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int> answers;
+        int all=nums[0],all1=nums[0],count=0;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]==0){
+                count++;
+                all*=nums[i];  
+            }else{
+                all1*=nums[i];   
+                all*=nums[i]; 
+            }
+        }
+        
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==0){
+                if(count<=1){
+                    answers.push_back(all1);
+                }else{
+                    answers.push_back(0);
+                }
+            }else{
+                answers.push_back(all/nums[i]);
+            }
+        }        
+        return answers;
+    }
+};
+
+// https://leetcode.com/problems/product-of-array-except-self/submissions/
+// Product of Array Except Self Week 1 (Array)
